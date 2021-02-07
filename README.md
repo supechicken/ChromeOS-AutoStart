@@ -1,5 +1,5 @@
 # ChromeOS-AutoStart
-### Run shell command at ChromeOS startup automatically without remounting root filesystem as read/write.
+### An extension for running shell command at ChromeOS startup automatically without remounting root filesystem as read/write.
 
 ## Install
 - Download archive of this repository and unzip it
