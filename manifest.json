@@ -12,7 +12,7 @@
     "default_icon": {
       "170": "icon.png"
     },
-    "default_title": "ChromeOS AutoStart"
+    "default_title": "ChromeOS AutoStart",
     "default_popup": "option.html"
   },
   "offline_enabled": true,
