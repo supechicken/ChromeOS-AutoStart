@@ -1,7 +1,7 @@
 <p align="center"><img src="/icon.png" alt="logo" /></p>
 <h1 align="center">ChromeOS Autostart</h1>
 
-### An extension for running shell command at ChromeOS startup automatically without remounting root filesystem as read/write.
+## An extension for running shell command at ChromeOS startup automatically without remounting root filesystem as read/write.
 
 ## WARNING: This extension may conflict with dev version of Secure Shell extension
 
