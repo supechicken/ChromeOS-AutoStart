@@ -16,5 +16,5 @@ chrome.storage.local.get('start', function(data) {
         console.log(text);
     }
 
-    setTimeout(() => {  chrome.tabs.getCurrent( (tab) => { chrome.tabs.remove(tab.id) }) }, 1000);
+    //setTimeout(() => {  chrome.tabs.getCurrent( (tab) => { chrome.tabs.remove(tab.id) }) }, 1000);
 });
