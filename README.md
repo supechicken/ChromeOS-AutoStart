@@ -4,7 +4,7 @@
 ## An extension for running shell command at ChromeOS startup automatically without remounting root filesystem as read/write.
 
 ## Installation
-### WARNING: This extension may conflict with dev version of Secure Shell extension
+### WARNING: This extension may conflict with dev version of Secure Shell extension, you may need to remove dev version of Secure Shell (if installed)
 
 - Download archive of this repository and unzip it
 - Go to chrome://extensions/ and enable Developer Mode
