@@ -1,14 +1,27 @@
-chrome.storage.local.get('start', function(data) {
+chrome.storage.local.get('start', (data) => {
+    // print current startup command if set
     if (data.start) {
-        window.alert(`Current startup command: ${data.start}`)
+        document.getElementById('current_cmd').innerHTML = 
+            (`Current startup command: '${data.start}'`)
     }
 });
 
-document.getElementById('button1').onclick = function onPressed() {
-    const autostart=document.getElementById('autostart_1').value;
-    chrome.storage.local.set({'start': autostart}, function () { window.alert(`Command set: ${autostart}`) });
+document.getElementById('enter').onclick = function() {
+    var autostart = document.getElementById('new_cmd').value,
+            debug = document.getElementById('debug').checked;
+    chrome.storage.local.set(
+        {'start': autostart, 'debug': debug},
+        () => {
+            alert(`Command set: ${autostart}`)
+        }
+    );
 };
 
-document.getElementById('button2').onclick = function() {
-    chrome.storage.local.clear(function() { console.log('Clear') })
+document.getElementById('clear').onclick = function() {
+    // reset settings
+    chrome.storage.local.clear( () => { alert('Clear') } )
 }
+
+document.getElementById('test').onclick = function() {
+    chrome.windows.create({url: '/run.html', type: 'popup'});
+};

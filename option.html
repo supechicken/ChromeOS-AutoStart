@@ -1,8 +1,16 @@
+<!-- option.html: option page -->
 <html>
+<body>
+  <div style='text-align: center;'>
+    <p id='current_cmd' />
+    <br />
     <p>Enter the command you wish to run at startup:</p>
-    <input name="autostart_1" type="text" id="autostart_1" class="autostart_1"/>
-    <input type='button' name='submit' id="button1" value='Enter'/>
-    <br>
-    <input id="button2" type="submit" name="button" value="Clear existing startup command"/>
-    <script src='/option.js'></script>
+    <input name='new_cmd' type='text' id='new_cmd'/><br />
+    <input name='submit' type='button' id='enter' value='Enter'/><br />
+    <input name='clear' type='button' id='clear' value='Clear existing startup command'/><br />
+    <input name='test' type='button' id='test' value='Test'/>
+    <label><input name='debug' type='checkbox' id='debug' value='Debug'>Debug mode</label>
+  </div>
+</body>
+<script src='/option.js'></script>
 </html>

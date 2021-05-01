@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
   "name": "ChromeOS Autostart",
-  "version": "1.1",
+  "version": "2.0",
   "icons": { "170": "icon.png" },
   "description": "Run shell command at ChromeOS startup.",
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["onstart.js"],
     "persistent": false
   },
   "browser_action": {
@@ -17,6 +17,6 @@
   },
   "offline_enabled": true,
   "options_page": "option.html",
-  "permissions": [ "terminalPrivate", "storage" ],
+  "permissions": [ "terminalPrivate", "storage", "windows" ],
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl8sdzpPbCg8pDh/1zrwU17WdrQROlsJsuxGA0RkMX0T0+b/Tarh4YcSA5NDhAqVO3hA8acmYnjkCCOMpP0roceVLBUOag9WxhpXak4A0ZPrwZi2bLPjx+gxkccyAp8bXwskSvjaL+vF/+zN8PT9yDz/Np7WJmfakksDPAZSoCnbykVbaEtpG8qbbUPgmjndrHkgV9cMjpNLAd+GnlARyQ/DceBPtA27z06N/nV+hS7TRIQJTx7XwH6rGKSJ1gn61/wtBWqZQyL3PA6997++55GYtWVB4pmLPXa0vog3GF2wFYf3geD9v2jfP4t9PhPZy9zESr6fP4nqd1HXd6pzamwIDAQAB"
 }
