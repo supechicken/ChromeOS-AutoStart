@@ -16,3 +16,4 @@
 - Click "Pack Extension", then click "Okay"
 - Open the file manager, go to Downloads and drag the `.crx` file into the chrome://extensions window.
 - Click "Add Extension"
+- Optionally delete the generated `.crx` packaged file and `.pem` key file
