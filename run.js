@@ -10,7 +10,7 @@ chrome.storage.local.get('debug', (debug) => {
             chrome.terminalPrivate.sendInput(pid, 'shell\n');
             chrome.terminalPrivate.sendInput(pid,
                 // prevent unexpected newline
-                `nohup tr -d '\n' <<CMD\n${cmd.start}\n`
+                `nohup tr -d '\n' <<CMD\n${cmd.start}\nCMD\n`
             );
         });
         
