@@ -5,9 +5,9 @@
   "icons": { "170": "icon.png" },
   "description": "Run shell command at ChromeOS startup.",
   "background": {
-    "service_worker": ["onstart.js"]
+    "service_worker": "onstart.js"
   },
-  "browser_action": {
+  "action": {
     "default_icon": {
       "170": "icon.png"
     },
