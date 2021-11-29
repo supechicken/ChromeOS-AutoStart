@@ -3,5 +3,5 @@ chrome.runtime.onStartup.addListener(function() {
 });
 chrome.runtime.onInstalled.addListener(function(i) {
     if (i.reason == 'install') {
-        chrome.windows.create({url: '/option.html', type: 'popup'})
+        chrome.windows.create({url: '/option.html', type: 'popup', height: 221, width: 230})
 }})
