@@ -8,7 +8,8 @@ chrome.storage.local.get('debug', (debug) => {
             if (pid < 0) { alert("error!") }
 
             chrome.terminalPrivate.sendInput(pid,
-                `nohup ${cmd.start} &> /tmp/cros-autostart.log\n`
+                // prevent unexpected newline
+                `nohup tr -d '\n' <<CMD\n${cmd.start}\n`
             );
         });
         
