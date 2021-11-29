@@ -5,7 +5,7 @@ chrome.storage.local.get('debug', (debug) => {
         chrome.terminalPrivate.onProcessOutput.addListener(processListener);
         // open a terminal
         chrome.terminalPrivate.openTerminalProcess('crosh', (pid) => {
-            if (pid < 0) { alert("error!") }
+            if (pid < 0) { alert('Error: cannot open crosh!') }
 
             chrome.terminalPrivate.sendInput(pid, 'shell\n');
             chrome.terminalPrivate.sendInput(pid,
