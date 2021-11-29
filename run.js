@@ -7,10 +7,8 @@ chrome.storage.local.get('debug', (debug) => {
         chrome.terminalPrivate.openTerminalProcess('crosh', (pid) => {
             if (pid < 0) { alert("error!") }
 
-            chrome.terminalPrivate.sendInput(pid, '\n\nshell\n\nexport PS1="$ "\n\n');
             chrome.terminalPrivate.sendInput(pid,
-                // prevent unexpected newline
-                `\n\nsh -c "$(tr -d '\n' <<< '${cmd.start}')"\n`
+                `nohup ${cmd.start} &> /tmp/cros-autostart.log\n`
             );
         });
         
