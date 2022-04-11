@@ -1,0 +1,36 @@
+button, input, body {
+  font-family: Arial;
+  font-size: 15px;
+}
+
+button {
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-family: Arial;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: light) {
+  body, input[type=”text”], textarea {
+    background-color: #fff;
+    color: #000
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body, input[type=”text”], textarea {
+    background-color: #1e1e1e;
+    color: rgb(199, 199, 199);
+  }
+}
+
+input[type="text"], textarea {
+  /*background-color: red;*/
+}

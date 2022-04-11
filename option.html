@@ -1,12 +1,14 @@
 <!-- option.html: option page -->
 <html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <div style='text-align: center;'>
     <p id='current_cmd' />
     <br />
     <p>Enter the command you wish to run at startup:</p>
-    <input name='new_cmd' type='text' id='new_cmd'/><br />
-    <input name='submit' type='button' id='enter' value='Enter'/><br />
+    <input name='new_cmd' type='text' id='new_cmd'/><button id='enter'>Enter</button><br />
     <input name='clear' type='button' id='clear' value='Clear existing startup command'/><br />
     <input name='test' type='button' id='test' value='Test'/>
     <label><input name='debug' type='checkbox' id='debug' value='Debug'>Debug mode</label>
