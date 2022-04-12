@@ -1,6 +1,6 @@
 // dark mode icon handler
 chrome.runtime.onMessage.addListener( (e) => {
-  if (request.scheme == 'dark') {
+  if (e.scheme == 'dark') {
       chrome.browserAction.setIcon({
         path: { '170': 'icon-dark.png' }
       });
