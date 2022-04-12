@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "ChromeOS Autostart",
-  "version": "2.2.1",
-  "icons": { "170": "icon-light.png" },
+  "version": "3.0",
+  "icons": { "38": "icon-light_38x38.png" },
   "description": "Run shell command at ChromeOS startup.",
   "background": {
     "scripts": [ "background.js" ]
