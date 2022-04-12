@@ -23,5 +23,5 @@ document.getElementById('clear').onclick = function() {
 }
 
 document.getElementById('test').onclick = function() {
-    chrome.windows.create({url: '/run.html', type: 'popup'});
+    chrome.windows.create({url: '/run.html', type: 'popup', height: 200, width: 200});
 };

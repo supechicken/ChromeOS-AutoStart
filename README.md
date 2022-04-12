@@ -1,4 +1,7 @@
-<p align="center"><img src="/icon.png" alt="logo" /></p>
+<p align="center">
+  <img src="/icon-light.png#gh-light-mode-only" alt="logo" />
+  <img src="/icon-dark.png#gh-dark-mode-only" alt="logo" />
+</p>
 <h1 align="center">ChromeOS Autostart</h1>
 
 ## An extension for running shell command at ChromeOS startup automatically without removing RootFS verification.
@@ -11,6 +14,8 @@
 - Click `Load unpacked extension` and select the `ChromeOS-AutoStart-main` unzipped folder
 - A new window will appear and type the command you want to run it at startup
 - Optional: Click the `Test` button to test it out after setting a command
+
+<em>* Please do not delete the unzipped folder after loading the extension, otherwise the extension will not work</em>
 
 ## How does it works?
 
