@@ -1,4 +1,7 @@
-<p align="center"><img src="/icon.png" alt="logo" /></p>
+<p align="center">
+  <img src="/icon-light.png#gh-light-mode-only" alt="logo" />
+  <img src="/icon-dark.png#gh-dark-mode-only" alt="logo" />
+</p>
 <h1 align="center">ChromeOS Autostart</h1>
 
 ## An extension for running shell command at ChromeOS startup automatically without removing RootFS verification.

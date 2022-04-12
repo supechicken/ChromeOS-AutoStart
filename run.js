@@ -2,9 +2,21 @@
 
 chrome.storage.local.get('debug', (debug) => {
     chrome.storage.local.get('start', (cmd) => {
-        chrome.terminalPrivate.onProcessOutput.addListener( (pid, type, output) => {
+        chrome.terminalPrivate.onProcessOutput.addListener( (pid, type, data) => {
+          let output
+          // on Chrome OS 100+, the onProcessOutput function will return an ArrayBuffer object instead of a string,
+          // we need to convert it to string if an ArrayBuffer is returned.
+          //
+          // For more info, see https://chromium-review.googlesource.com/c/apps/libapps/+/3470612/
+          if (data instanceof ArrayBuffer) {
+            let dec = new TextDecoder('utf-8')
+            output = dec.decode(data)
+          } else {
+            output = data
+          }
+
           // print terminal output in console
-          if (output.split("\n").includes("__ext_close__\r") && !debug.debug) {
+          if (output.match(/[^"]__ext_close__/) && !debug.debug) {
             // close terminal process
             chrome.terminalPrivate.closeTerminalProcess(pid);
 

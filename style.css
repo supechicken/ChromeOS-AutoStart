@@ -1,6 +1,13 @@
+body {
+  height: 300px;
+  width: 300px;
+}
+
 button, input, body {
   font-family: Arial;
   font-size: 15px;
+  margin-bottom: 3px;
+  margin-right: 2px;
 }
 
 button {
@@ -8,7 +15,6 @@ button {
   color: white;
   border-radius: 4px;
   padding: 5px 10px;
-  font-family: Arial;
   border: none;
   cursor: pointer;
 }
@@ -17,20 +23,31 @@ button:hover {
   opacity: 0.9;
 }
 
+input[type="text"] {
+  height: 25px;
+  border: 2px solid;
+  border-radius: 4px;
+}
+
 @media (prefers-color-scheme: light) {
-  body, input[type=”text”], textarea {
+  body, input[type="text"], textarea {
     background-color: #fff;
     color: #000
+  }
+  input[type="text"], textarea {
+    border-color: rgb(0, 0, 0);
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  body, input[type=”text”], textarea {
+  body, input[type="text"], textarea {
     background-color: #1e1e1e;
     color: rgb(199, 199, 199);
   }
-}
-
-input[type="text"], textarea {
-  /*background-color: red;*/
+  input[type="text"], textarea {
+    border-color: rgb(199, 199, 199);
+  }
+  ::placeholder {
+    color: rgb(183, 183, 183);
+  }
 }

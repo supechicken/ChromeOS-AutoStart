@@ -8,10 +8,11 @@
     <p id='current_cmd' />
     <br />
     <p>Enter the command you wish to run at startup:</p>
-    <input name='new_cmd' type='text' id='new_cmd'/><button id='enter'>Enter</button><br />
-    <input name='clear' type='button' id='clear' value='Clear existing startup command'/><br />
-    <input name='test' type='button' id='test' value='Test'/>
-    <label><input name='debug' type='checkbox' id='debug' value='Debug'>Debug mode</label>
+    <input name='new_cmd' type='text' id='new_cmd' placeholder="Command here"/><button id='enter'>Enter</button><br />
+    <button id='clear'>Clear existing startup command</button><br /> 
+    <button id='test'>Test</button>
+    <input name='debug' type='checkbox' id='debug' />
+    <label for='debug'>Debug mode</label>
   </div>
 </body>
 <script src='/option.js'></script>
