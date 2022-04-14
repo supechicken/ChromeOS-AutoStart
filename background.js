@@ -7,7 +7,7 @@ chrome.runtime.onMessage.addListener( (e) => {
 
 // open run.html (used to execute command via terminalPrivate API) at login
 chrome.runtime.onStartup.addListener( () => {
-    chrome.windows.create({url: "run.html", type: 'popup', state: 'minimized', height: 200, width: 200})
+    chrome.windows.create({url: "run.html", type: 'popup', state: 'minimized'})
 });
 
 // prompt user to enter a command after install
