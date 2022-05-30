@@ -3,11 +3,15 @@
 const magic_word = '\x00__ext_close__\x00',  // a string for telling the extension all commands were run successfully
          decoder = new TextDecoder('utf-8'); // for decoding ArrayBuffer output on Chrome OS 100+
 
+let crosh_pid;
+
 chrome.storage.local.get(['debug', 'start'], (localStorage) => {
   const debug = localStorage.debug,
           cmd = localStorage.start;
 
   chrome.terminalPrivate.onProcessOutput.addListener((pid, type, data) => {
+    if (pid != crosh_pid) return false // only print output of the crosh process we have started
+
     // on Chrome OS 100+, the onProcessOutput function will return an ArrayBuffer object instead of a string,
     // we need to convert it to string if an ArrayBuffer is returned.
     //
@@ -32,13 +36,14 @@ chrome.storage.local.get(['debug', 'start'], (localStorage) => {
   chrome.terminalPrivate.openTerminalProcess('crosh', pid => {
     if (pid < 0) alert('Error: cannot open crosh!');
 
+    crosh_pid = pid; // store pid for sendInput and onProcessOutput
     console.log('[debug]:', `Process ${pid} started`);
 
     chrome.terminalPrivate.sendInput(pid, `
       shell                                            # enter system shell
       set +o history                                   # disable history log
 
-      nohup ${cmd} > /tmp/ChromeOS-AutoStart.log # run specific command in background, redirect output to a file
+      nohup ${cmd} > /tmp/ChromeOS-AutoStart.log       # run specific command in background, redirect output to a file
                                                        # (/tmp/ChromeOS-AutoStart.log)
 
       echo -e "\\x00${magic_word}\\x00"                # tell extension to close this process
