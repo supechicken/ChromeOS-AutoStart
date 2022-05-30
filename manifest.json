@@ -2,20 +2,14 @@
   "manifest_version": 2,
   "name": "ChromeOS Autostart",
   "version": "3.0",
-  "icons": { "170": "icon-light.png" },
+  "icons": { "170": "icon.png" },
   "description": "Run shell command at ChromeOS startup.",
   "background": {
     "scripts": [ "background.js" ]
   },
-  "content_scripts": [
-    {
-      "matches": [ "<all_urls>" ],
-      "js": [ "/dark-mode-icon.js" ]
-    }
-  ],
   "browser_action": {
     "default_icon": {
-      "38": "icon-light_38x38.png"
+      "38": "icon_38x38.png"
     },
     "default_title": "ChromeOS AutoStart",
     "default_popup": "option.html"
