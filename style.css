@@ -25,18 +25,17 @@ button:hover {
 
 input[type="text"] {
   height: 25px;
-  border: 2px solid;
+  border: 1px solid #fff;
   border-radius: 4px;
 }
 
-@media (prefers-color-scheme: light) {
-  body, input[type="text"], textarea {
-    background-color: #fff;
-    color: #000
-  }
-  input[type="text"], textarea {
-    border-color: rgb(0, 0, 0);
-  }
+body, input[type="text"], textarea {
+  background-color: #fff;
+  color: #000
+}
+
+input[type="text"], textarea {
+  border-color: rgb(0, 0, 0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,9 +43,11 @@ input[type="text"] {
     background-color: #1e1e1e;
     color: rgb(199, 199, 199);
   }
+
   input[type="text"], textarea {
     border-color: rgb(199, 199, 199);
   }
+
   ::placeholder {
     color: rgb(183, 183, 183);
   }
