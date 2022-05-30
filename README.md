@@ -1,6 +1,6 @@
 <p align="center">
   <img src="/icon-light.png#gh-light-mode-only" alt="logo" />
-  <img src="/icon-dark.png#gh-dark-mode-only" alt="logo" />
+  <img src="/icon.png#gh-dark-mode-only" alt="logo" />
 </p>
 <h1 align="center">ChromeOS Autostart</h1>
 
