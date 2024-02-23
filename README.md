@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/img/icon.svg" alt="logo" />
+  <img src="/img/icon.svg" alt="logo" width="180" height="180" />
   <h1>ChromeOS Autostart</h1>
   <p>A Chrome extension for running crosh commands at ChromeOS startup, without the need of developer mode</p>
 </div>
