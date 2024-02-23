@@ -1,9 +1,8 @@
-<p align="center">
-  <img src="/icon-light.png#gh-light-mode-only" alt="logo" />
-  <img src="/icon.png#gh-dark-mode-only" alt="logo" />
-</p>
-<h1 align="center">ChromeOS Autostart</h1>
-<p align="center">A Chrome extension for running crosh commands at ChromeOS startup, without the need of developer mode</p>
+<div align="center">
+  <img src="/img/icon.svg" alt="logo" />
+  <h1>ChromeOS Autostart</h1>
+  <p>A Chrome extension for running crosh commands at ChromeOS startup, without the need of developer mode</p>
+</div>
 
 ## What can it do?
 #### If you are using Crostini, you can...
