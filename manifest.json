@@ -1,21 +1,17 @@
 {
-  "manifest_version": 2,
-  "name": "ChromeOS Autostart",
-  "version": "4.0",
-  "icons": { "170": "icon.png" },
-  "description": "Run shell command at ChromeOS startup.",
-  "background": {
-    "scripts": [ "background.js" ]
+  "manifest_version": 3,
+  "name": "ChromeOS AutoStart",
+  "version": "5.0.0",
+  "icons": {
+    "170": "img/icon_gray.png"
   },
-  "browser_action": {
-    "default_icon": {
-      "38": "icon_38x38.png"
-    },
-    "default_title": "ChromeOS AutoStart",
-    "default_popup": "option.html"
+  "description": "Run shell command at ChromeOS startup.",
+  "author": "supechicken666@gmail.com",
+  "background": {
+    "service_worker": "service_worker.js"
   },
   "offline_enabled": true,
-  "options_page": "option.html",
-  "permissions": [ "terminalPrivate", "storage", "windows" ],
+  "options_page": "html/listEntries.html",
+  "permissions": [ "terminalPrivate", "storage" ],
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl8sdzpPbCg8pDh/1zrwU17WdrQROlsJsuxGA0RkMX0T0+b/Tarh4YcSA5NDhAqVO3hA8acmYnjkCCOMpP0roceVLBUOag9WxhpXak4A0ZPrwZi2bLPjx+gxkccyAp8bXwskSvjaL+vF/+zN8PT9yDz/Np7WJmfakksDPAZSoCnbykVbaEtpG8qbbUPgmjndrHkgV9cMjpNLAd+GnlARyQ/DceBPtA27z06N/nV+hS7TRIQJTx7XwH6rGKSJ1gn61/wtBWqZQyL3PA6997++55GYtWVB4pmLPXa0vog3GF2wFYf3geD9v2jfP4t9PhPZy9zESr6fP4nqd1HXd6pzamwIDAQAB"
 }

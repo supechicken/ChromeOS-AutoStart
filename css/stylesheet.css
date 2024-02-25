@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@100;200;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Prompt:wght@500&family=Raleway:wght@200;300;500;700&display=swap');
+@import url(button.css);
+@import url(theme.css);
+
+body {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+fieldset, textarea, input[type="text"] {
+  border-radius: 7px;
+}
+
+textarea, input[type="text"] {
+  background-color: transparent;
+  color: var(--txt-color);
+  border: 2px solid #cccccc7d;
+}
+
+input[type="text"]:disabled {
+  color: gray;
+}
+
+fieldset {
+  margin-bottom: 5px;
+}
+
+fieldset > * {
+  margin-bottom: 2px;
+}
+
+tr > td {
+  white-space: pre;
+  padding-right: 10px;
+  min-width: 150px;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.horizontal-center {
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-center > * {
+  margin: 10px 5px;
+}

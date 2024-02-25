@@ -1,0 +1,25 @@
+:root {
+  --bg-color: white;
+  --bg-subcolor: rgba(0, 0, 0, 0.05);
+  --txt-color: black;
+  --green: #329f23;
+  --red: #ff3131;
+  --gray: #8b8b8b;
+  --yellow: #ffff00;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #202124;
+    --bg-subcolor: rgba(255, 255, 255, 0.1);
+    --txt-color: #ebebeb;
+  }
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+}

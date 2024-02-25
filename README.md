@@ -15,15 +15,15 @@
 
 ## Installation
 > [!IMPORTANT]
-> This extension conflicts with [Secure Shell extension](https://chrome.google.com/webstore/detail/iodihamcpbpeioajjeobimgagajmlibd). (as this extension [used its ID](#How-does-it-works))
+> This extension conflicts with [Secure Shell extension (development version)](https://chrome.google.com/webstore/detail/algkcnfjnajfhgimadimbjhmpaeohhln). (as this extension [used its ID](#How-does-it-works))
 >
 > Please remove it before installing this extension (if installed), otherwise this extension might not work as expected
 
-- Download [archive](https://github.com/supechicken/ChromeOS-AutoStart/archive/refs/tags/v3.0.1.zip) of this repository and unzip it
+- Download [the latest release (in `zip`)](https://github.com/supechicken/ChromeOS-AutoStart/releases/latest) and unzip it
 - Go to `chrome://extensions` and enable Developer Mode
-- Click `Load unpacked extension` and select the `ChromeOS-AutoStart-main` unzipped folder
-- A new window will appear and type the command you want to run it at startup
-- Optional: Click the `Test` button to test it out after setting a command
+- Click `Load unpacked extension` and select the `ChromeOS-AutoStart-<version>` unzipped folder
+- A new window will appear and add command(s) you want to run at startup
+- Optional: Click the `Test run` button to test it out after adding a command
 
 <em>* Please do not delete the unzipped folder after loading the extension, otherwise the extension will get deleted after reboot</em>
 

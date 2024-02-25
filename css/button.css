@@ -1,0 +1,29 @@
+a, button {
+  font-family: 'Google Sans', sans-serif;
+  text-decoration: none;
+  background-color: transparent;
+  color: rgb(26,115,232);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 20px;
+  border: 2px solid #cccccc7d;
+  opacity: 1;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+a:hover, button:hover {
+  background-color: #5e71d212;
+}
+
+a.tone2, button.tone2 {
+  background-color: #1a73e8;
+  color: white;
+}
+
+a.tone2:hover, button.tone2:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>Add a new entry</title>
+
+  <link rel="stylesheet" href="/css/stylesheet.css" />
+  <script src="/js/addEntry.js" defer></script>
+
+  <style>
+    fieldset {
+      width: calc(100% - 50px);
+    }
+
+    fieldset > label {
+      display: inline-block;
+      min-width: 1.5in;
+    }
+
+    #cmdBox {
+      height: 1.5in;
+      width: calc(100% - 9px);
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>Autostart type</legend>
+
+    <input type="radio" id="crosh" name="autostart_type" value="crosh" checked />
+    <label for="crosh">ChromeOS shell (crosh)</label>
+
+    <input type="radio" id="vmshell" name="autostart_type" value="vmshell" />
+    <label for="vmshell">ChromeOS VM (crosvm)</label>
+
+    <input type="radio" id="dev_bash" name="autostart_type" value="devshell" />
+    <label for="dev_bash">Developer mode shell</label>
+  </fieldset>
+  <fieldset>
+    <legend>Specific settings for crosvm</legend>
+
+    <label for="vmName">VM name</label>
+    <input type="text" id="vmName" class="monospace" value="termina" disabled />
+    <br />
+
+    <label for="containerName">Container name</label>
+    <input type="text" id="containerName" class="monospace" value="penguin" disabled />
+    <br />
+  </fieldset>
+  <fieldset>
+    <legend id="cmdBox_prompt">Commands</legend>
+    <textarea id="cmdBox" placeholder="Enter or paste your command(s) here"></textarea>
+  </fieldset>
+  <div class="horizontal-center">
+    <button id="cancelBtn">Cancel</button>
+    <button id="saveBtn">Save</button>
+  </div>
+</body>
+
+</html>
