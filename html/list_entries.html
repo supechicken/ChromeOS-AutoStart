@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>ChromeOS AutoStart</title>
+
+  <link rel="icon" href="/img/icon.svg" />
+  <link rel="stylesheet" href="/css/stylesheet.css" />
+  <script src="/js/list_entries.js" defer></script>
+
+  <style>
+    body {
+      min-width: 700px;
+      max-width: 1000px;
+    }
+
+    #entryList {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 20px;
+      overflow-y: scroll;
+    }
+
+    .entry {
+      position: relative;
+      padding: 20px;
+      margin-bottom: 15px;
+      width: 80%;
+      background-color: var(--bg-subcolor);
+      border-radius: 15px;
+    }
+
+    .btnList {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .cmdBox {
+      box-sizing: border-box;
+      margin-top: 10px;
+      width: 100%;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Current autostart command(s)</h1>
+  <div class="horizontal-center" style="justify-content: center;">
+    <button id="testBtn">Test run</button>
+    <button id="addEntryBtn">Add a new entry</button>
+  </div>
+  <fieldset>
+    <legend>Autostart options</legend>
+      <div class="horizontal-center">
+        <label class="switch">
+          <input type="checkbox" id="showNotification">
+          <span class="slider round"></span>
+        </label>
+        <label for="showNotification">Show notification when completed</label>
+      </div>
+      <div class="horizontal-center">
+        <label class="switch">
+          <input type="checkbox" id="autoClose">
+          <span class="slider round"></span>
+        </label>
+        <label for="autoClose">Close extension automatically when completed</label>
+      </div>
+  </fieldset>
+  <p id="totalEntries"></p>
+  <div id="entryList"></div>
+</body>
+
+</html>

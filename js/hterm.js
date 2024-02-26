@@ -2368,7 +2368,7 @@ lib.MessageManager.prototype.get = function(msgname, args, fallback) {
     // Look it up in the registered cache next.
     message = this.messages_[msgname];
     if (!message) {
-      console.warn('Unknown message: ' + msgname);
+      // console.warn('Unknown message: ' + msgname);
       message = fallback === undefined ? msgname : fallback;
       // Register the message with the default to avoid multiple warnings.
       this.messages_[msgname] = message;

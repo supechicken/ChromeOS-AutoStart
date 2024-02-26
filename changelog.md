@@ -1,3 +1,19 @@
+# v5.1 (2024-02-26)
+## New features
+- Optional update check during each startup
+- Show notifications when all autostart entries are executed
+- Modify existing auto entry is available now
+
+## Major changes
+- Remove camel case from filenames
+- Move some functions into separated files
+
+## Misc
+- Suppress `hterm` warnings
+- Update icons
+
+---
+
 # v5.0 (2024-02-26)
 ## New features
 - Running commands in `crosvm` (e.g Crostini) and `crosh` are supported now
