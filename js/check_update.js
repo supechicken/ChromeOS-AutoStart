@@ -33,6 +33,9 @@ window.onload = async () => {
   const latest = await fetch(update_url).then(response => response.json());
 
   if (latest.latest_version === manifest.version) {
+    statusText.innerText  = `No update found`;
+    description.innerText = `You are using the latest version of ChromeOS AutoStart.`;
+
     // close this page if no update available
     if (url_params.get('autoclose') === '1') window.close();
   } else {
