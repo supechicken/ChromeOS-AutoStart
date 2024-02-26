@@ -25,7 +25,8 @@
 - A new window will appear and add command(s) you want to run at startup
 - Optional: Click the `Test run` button to test it out after adding a command
 
-<em>* Please do not delete the unzipped folder after loading the extension, otherwise the extension will get deleted after reboot</em>
+> [!NOTE]
+> Please do not delete the unzipped folder after loading the extension, otherwise the extension will get deleted after reboot
 
 ## How does it works?
 
