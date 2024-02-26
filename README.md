@@ -1,6 +1,6 @@
 <div align="center">
   <img src="/img/icon.svg" alt="logo" width="180" height="180" />
-  <h1>ChromeOS Autostart</h1>
+  <h1>ChromeOS AutoStart</h1>
   <p>A Chrome extension for running Linux commands at ChromeOS startup, without the need of developer mode</p>
 </div>
 
