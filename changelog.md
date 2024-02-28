@@ -1,3 +1,16 @@
+# v5.1.1 (2024-02-29)
+## New features
+- Add options page, which includes the entry of update checker
+- Add about page, changelog of the installed version will show there
+
+## Bug fixes
+- Settings will not wiped on updates now
+
+## Misc
+- Updated icon
+
+---
+
 # v5.1 (2024-02-26)
 ## New features
 - Optional update check during each startup

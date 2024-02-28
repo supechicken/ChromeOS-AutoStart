@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>ChromeOS AutoStart</title>
+
+  <link rel="icon" href="/img/icon.svg" />
+  <link rel="stylesheet" href="/css/stylesheet.css" />
+  <script src="/js/options_page.js" defer></script>
+
+  <style>
+    fieldset {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    body {
+      box-sizing: border-box;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>Autostart options</legend>
+      <div class="horizontal-center">
+        <label class="switch">
+          <input type="checkbox" id="showNotification">
+          <span class="slider round"></span>
+        </label>
+        <label for="showNotification">Show notification when completed</label>
+      </div>
+      <div class="horizontal-center">
+        <label class="switch">
+          <input type="checkbox" id="autoClose">
+          <span class="slider round"></span>
+        </label>
+        <label for="autoClose">Close extension when completed</label>
+      </div>
+  </fieldset>
+  <div class="center btnList_full_width" style="padding-bottom: 10px;">
+    <button id="manageBtn">Manage autostart entries</button>
+    <button id="checkUpdateBtn">Check update</button>
+    <button id="aboutBtn">About ChromeOS AutoStart</button>
+  </div>
+</body>
+
+</html>

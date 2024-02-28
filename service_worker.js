@@ -45,10 +45,13 @@ chrome.runtime.onInstalled.addListener(async i => {
 
   switch (i.reason) {
     case 'update':
-      if (i.previousVersion.localeCompare("5.0.0", undefined, { numeric: true, sensitivity: 'base' }) <= 0) {
+      if (i.previousVersion.localeCompare("5.0.0", undefined, { numeric: true, sensitivity: 'base' }) >= 0) {
         chrome.storage.local.set({ showNotification: true, autoClose: true });
-        break;
+      } else {
+        chrome.storage.local.set({ autostartEntries: [], showNotification: true, autoClose: true });
+        chrome.windows.create({ url: '/html/list_entries.html', type: 'popup', height: 600, width: 700 });
       }
+      break;
     case 'install':
       // prompt user to enter a command after install
       chrome.storage.local.set({ autostartEntries: [], showNotification: true, autoClose: true });

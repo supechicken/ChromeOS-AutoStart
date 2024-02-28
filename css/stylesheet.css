@@ -54,5 +54,21 @@ tr > td {
 }
 
 .horizontal-center > * {
+  flex-shrink: 0;
   margin: 10px 5px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center > * {
+  flex-shrink: 0;
+}
+
+.btnList_full_width, .btnList_full_width > button {
+  width: 100%;
 }

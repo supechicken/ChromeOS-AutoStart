@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <title>ChromeOS AutoStart</title>
+
+  <link rel="icon" href="/img/icon.svg" />
+  <link rel="stylesheet" href="/css/stylesheet.css" />
+  <script src="/js/about_page.js" defer></script>
+
+  <style>
+    #changelog {
+      box-sizing: border-box;
+      height: 50%;
+      width: 80%;
+    }
+
+    #changelog_textbox {
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <img height="130" width="130" src="/img/icon.svg" />
+  <h1>ChromeOS AutoStart</h1>
+  <p id="ver">Version</p>
+
+  <fieldset id="changelog">
+    <legend>Changelog</legend>
+    <textarea id="changelog_textbox"></textarea>
+  </fieldset>
+
+  <div class="horizontal-center" style="padding-bottom: 10px;">
+    <button id="pageBtn">Project page</button>
+    <button id="checkUpdateBtn">Check update</button>
+  </div>
+</body>
+
+</html>

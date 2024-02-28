@@ -32,7 +32,7 @@ window.onload = async () => {
   // fetch latest version info
   const latest = await fetch(update_url).then(response => response.json());
 
-  if (latest.latest_version === manifest.version) {
+  if (url_params.get('forceAvailableUpdate') != '1' && latest.latest_version === manifest.version) {
     statusText.innerText  = `No update found`;
     description.innerText = `You are using the latest version of ChromeOS AutoStart.`;
 
