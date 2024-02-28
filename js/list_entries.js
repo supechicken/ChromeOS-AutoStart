@@ -27,7 +27,7 @@ const testBtn          = document.getElementById('testBtn'),
           <br/>
           <details>
             <summary>Command list</summary>
-            <textarea class="cmdBox" readonly></textarea>
+            <textarea class="cmdBox" spellcheck="false" readonly></textarea>
           </details>
         </div>`, "text/html").body.firstChild;
 
