@@ -34,3 +34,6 @@ There is a Chrome extension API called `chrome.terminalPrivate` which can be use
 made by Google (Secure Shell, Chromebook Recovery Utility, etc). However, we can use one of those extension's ID keys to get access to that API. (key from Secure Shell is used in this extension)
 
 The `chrome.runtime.onStartup` listener is used to start the terminal API above automatically when ChromeOS UI starts.
+
+## License
+This project including all of its source files is released under the terms of [GNU General Public License (version 3 or later)](http://www.gnu.org/licenses/gpl.txt).
