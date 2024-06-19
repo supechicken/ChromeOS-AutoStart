@@ -22,7 +22,7 @@ export async function spawnProcess(processType, vmshell_options = {}, io = null)
       printLog([
         `Process ${terminal_id} spawned:`,
         '',
-        '  /usr/bin/crosh',
+        '  crosh',
         ''
       ], io);
 
@@ -38,7 +38,7 @@ export async function spawnProcess(processType, vmshell_options = {}, io = null)
       printLog([
         `Process ${terminal_id} spawned:`,
         '',
-        `  /usr/bin/vsh ${vsh_args.slice(0, -4).join(' ')} ...`,
+        `  vsh ${vsh_args.slice(0, -2).join(' ')} ...`,
         ''
       ], io);
 

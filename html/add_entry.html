@@ -20,6 +20,10 @@
       min-width: 1.5in;
     }
 
+    .disabled_fieldset {
+      opacity: 40%;
+    }
+
     #cmdBox {
       height: 1.5in;
       width: calc(100% - 9px);
@@ -40,7 +44,12 @@
     <input type="radio" id="devshell" name="autostart_type" value="devshell" />
     <label for="devshell">Developer mode shell</label>
   </fieldset>
-  <fieldset>
+  <fieldset id="options_fieldset" class="disabled_fieldset">
+    <legend>Options</legend>
+    <label for="userName">Run as user</label>
+    <input type="text" id="userName" class="monospace" placeholder="Empty for default" spellcheck="false" disabled />
+  </fieldset>
+  <fieldset id="crosvm_fieldset" class="disabled_fieldset">
     <legend>Specific settings for crosvm</legend>
 
     <label for="vmName">VM name</label>

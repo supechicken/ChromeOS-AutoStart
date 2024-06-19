@@ -37,7 +37,7 @@ async function autostartEntries(io) {
       terminal_id = await terminal.spawnProcess(processType, {
         vmName: entry.vmName,
         containerName: entry.containerName,
-        cmd: ['/bin/bash', '-c', entry.cmd]
+        cmd: (entry.userName ? ['sudo', '-u', entry.userName] : []).concat(['bash', '-c', entry.cmd])
       }, io);
     } else {
       // for crosh/dev_shell, "type" commands to terminal with chrome.terminalPrivate.sendInput()
@@ -48,6 +48,10 @@ async function autostartEntries(io) {
         processType     = 'crosh';
         text_to_inject += `shell\r`;                        // enter bash shell
         text_to_inject += `set +o history\r`;               // do not save commands to .bash_history
+
+        // switch to specified user
+        if (entry.userName) text_to_inject += `exec sudo -u ${entry.userName} /bin/bash +o history\r`
+
         text_to_inject += `PS1="${bash_prompt}"\r\r`;       // set prompt text
         text_to_inject += entry.cmd.replaceAll('\n', '\r'); // inject user specific commands
         text_to_inject += `\rexit\r`;                       // exit bash shell after completed

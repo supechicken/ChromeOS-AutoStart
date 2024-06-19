@@ -22,6 +22,10 @@ const testBtn          = document.getElementById('testBtn'),
               <td>Container name: </td>
               <td class="container_name monospace"></td>
             </tr>
+            <tr class="user_name_tr" style="display: none;">
+              <td>Run as user: </td>
+              <td class="user_name monospace"></td>
+            </tr>
           </table>
 
           <br/>
@@ -44,9 +48,9 @@ showNotification.onchange = () => chrome.storage.local.set({ showNotification: s
 autoClose.onchange        = () => chrome.storage.local.set({ autoClose: autoClose.checked });
 
 // button actions
-testBtn.onclick     = () => chrome.windows.create({ url: '/html/autostart.html?noclose=1', type: 'popup' });
+testBtn.onclick     = () => chrome.windows.create({ url: '/html/autostart.html?noclose=1', type: 'popup', width: 940, height: 700 });
 addEntryBtn.onclick = () => {
-  chrome.windows.create({ url: '/html/add_entry.html', type: 'popup', height: 465, width: 640 }, window => {
+  chrome.windows.create({ url: '/html/add_entry.html', type: 'popup', height: 535, width: 640 }, window => {
     // reload after add_entry.html closed
     const listener = windowId => {
       if (windowId === window.id) {
@@ -90,7 +94,7 @@ window.onload = async () => {
     newDiv.querySelector('.cmdbox').value   = entry.cmd;
 
     newDiv.querySelector('.editBtn').onclick = () => {
-      chrome.windows.create({ url: `/html/add_entry.html?edit=1&entry=${i}`, type: 'popup', height: 465, width: 640 }, window => {
+      chrome.windows.create({ url: `/html/add_entry.html?edit=1&entry=${i}`, type: 'popup', height: 535, width: 640 }, window => {
         // reload after add_entry.html closed
         const listener = windowId => {
           if (windowId === window.id) {
@@ -111,12 +115,18 @@ window.onload = async () => {
       }
     };
 
-    // show VM and container name for crosvm
-    if (entry.type === 'vmshell') {
-      newDiv.querySelector('.vm_name_tr').style.display        = 'table-row';
-      newDiv.querySelector('.container_name_tr').style.display = 'table-row';
-      newDiv.querySelector('.vm_name').innerText               = entry.vmName;
-      newDiv.querySelector('.container_name').innerText        = entry.containerName;
+    switch (entry.type) {
+      case 'vmshell':
+        // show VM and container name for crosvm
+        newDiv.querySelector('.vm_name_tr').style.display        = 'table-row';
+        newDiv.querySelector('.container_name_tr').style.display = 'table-row';
+        newDiv.querySelector('.vm_name').innerText               = entry.vmName;
+        newDiv.querySelector('.container_name').innerText        = entry.containerName;
+      case 'devshell':
+      case 'vmshell':
+        // show run as user
+        newDiv.querySelector('.user_name_tr').style.display = 'table-row';
+        newDiv.querySelector('.user_name').innerText        = (entry.userName) ? entry.userName : '<default user>';
     }
 
     document.getElementById('entryList').appendChild(newDiv);

@@ -1,10 +1,13 @@
-const url_params    = new URLSearchParams(location.search),
-      cancelBtn     = document.getElementById('cancelBtn'),
-      saveBtn       = document.getElementById('saveBtn'),
-      cmdBox        = document.getElementById('cmdBox'),
-      cmdBox_prompt = document.getElementById('cmdBox_prompt'),
-      vmName        = document.getElementById('vmName'),
-      containerName = document.getElementById('containerName');
+const url_params       = new URLSearchParams(location.search),
+      cancelBtn        = document.getElementById('cancelBtn'),
+      saveBtn          = document.getElementById('saveBtn'),
+      cmdBox           = document.getElementById('cmdBox'),
+      cmdBox_prompt    = document.getElementById('cmdBox_prompt'),
+      options_fieldset = document.getElementById('options_fieldset'),
+      userName         = document.getElementById('userName'),
+      crosvm_fieldset  = document.getElementById('crosvm_fieldset'),
+      vmName           = document.getElementById('vmName'),
+      containerName    = document.getElementById('containerName');
 
 document.querySelectorAll('input[name="autostart_type"]').forEach(e => {
   e.onchange = () => {
@@ -15,7 +18,22 @@ document.querySelectorAll('input[name="autostart_type"]').forEach(e => {
     vmName.value        = 'termina';
     containerName.value = 'penguin';
 
-    vmName.disabled = containerName.disabled = !(e.checked && e.value == 'vmshell');
+    if (e.checked && e.value == 'vmshell') {
+      crosvm_fieldset.classList.remove('disabled_fieldset');
+      vmName.disabled = containerName.disabled = false;
+    } else {
+      crosvm_fieldset.classList.add('disabled_fieldset');
+      vmName.disabled = containerName.disabled = true;
+    }
+
+    // enable user name input box only when crosh is NOT selected
+    if (e.checked && e.value == 'crosh') {
+      options_fieldset.classList.add('disabled_fieldset');
+      userName.disabled = true;
+    } else {
+      options_fieldset.classList.remove('disabled_fieldset');
+      userName.disabled = false;
+    }
   };
 });
 
@@ -34,6 +52,7 @@ saveBtn.onclick = async () => {
 
     newEntries[entry_index] = {
       type:          autostart_type,
+      userName:      (userName.value.trim() === '') ? null : userName.value,
       vmName:        (autostart_type === 'vmshell') ? vmName.value : null,
       containerName: (autostart_type === 'vmshell') ? containerName.value : null,
       cmd:           cmdBox.value
@@ -45,6 +64,7 @@ saveBtn.onclick = async () => {
     chrome.storage.local.set({
       autostartEntries: autostartEntries.concat([{
         type:          autostart_type,
+        userName:      (userName.value.trim() === '') ? null : userName.value,
         vmName:        (autostart_type === 'vmshell') ? vmName.value : null,
         containerName: (autostart_type === 'vmshell') ? containerName.value : null,
         cmd:           cmdBox.value
@@ -62,6 +82,7 @@ window.onload = async () => {
 
     document.title   = 'Edit existing entry';
     radioBtn.checked = true;
+    userName.value   = entry_to_edit.userName;
     cmdBox.value     = entry_to_edit.cmd;
 
     radioBtn.onchange();
