@@ -1,7 +1,8 @@
 import { printLog } from './shared/functions.js';
 
-const update_url  = 'https://raw.githubusercontent.com/supechicken/ChromeOS-AutoStart/main/update.json',
-      release_url = 'https://github.com/supechicken/ChromeOS-AutoStart/releases/latest',
+const github_repo = 'supechicken/ChromeOS-AutoStart',
+      update_url  = `https://raw.githubusercontent.com/${github_repo}/main/update.json`,
+      release_url = `https://github.com/${github_repo}/releases/latest`,
       url_params  = new URLSearchParams(location.search),
       manifest    = chrome.runtime.getManifest(),
       statusText  = document.getElementById('statusText'),
@@ -30,7 +31,16 @@ window.onload = async () => {
   }
 
   // fetch latest version info
-  const latest = await fetch(update_url).then(response => response.json());
+  const latest = await fetch(update_url).then(response => response.json()).catch(err => {
+    statusText.innerText  = `Failed to check update`;
+    description.innerText = `Failed to fetch release infomation from GitHub.`;
+
+    if (url_params.get('autoclose') === '1') {
+      window.close();
+    } else {
+      throw new Error(err);
+    }
+  });
 
   if (url_params.get('forceAvailableUpdate') != '1' && latest.latest_version === manifest.version) {
     statusText.innerText  = `No update found`;
@@ -47,7 +57,7 @@ window.onload = async () => {
       focused: true
     }));
 
-    statusText.innerText  = `Update available!`;
+    statusText.innerText  = 'Update available!';
     description.innerText = `ChromeOS AutoStart version ${latest.latest_version} is available now.`
     printLog(`Update available: version ${latest.latest_version}`);
   }
