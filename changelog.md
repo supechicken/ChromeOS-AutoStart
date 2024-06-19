@@ -1,3 +1,16 @@
+# v5.2.0 (2024-06-19)
+## New features
+- Add support for running commands with specific user
+
+## Bug fixes
+- Fixed buggy edit page
+
+## Misc
+- Disable Google Translate popup
+- Minor UI adjustments
+
+---
+
 # v5.1.1 (2024-02-29)
 ## New features
 - Add options page, which includes the entry of update checker
