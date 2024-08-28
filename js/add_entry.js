@@ -42,7 +42,7 @@ cancelBtn.onclick = () => window.close();
 
 // save entry to local storage
 saveBtn.onclick = async () => {
-  const localStorage     = await new Promise(r => chrome.storage.local.get(['autostartEntries'], c => r(c))),
+  const localStorage     = await chrome.storage.local.get(['autostartEntries']),
         autostartEntries = localStorage.autostartEntries || [],
         autostart_type   = document.querySelector('input[name="autostart_type"]:checked')?.value;
 
@@ -75,7 +75,7 @@ saveBtn.onclick = async () => {
 
 window.onload = async () => {
   if (url_params.get('edit') === '1') {
-    const localStorage  = await new Promise(r => chrome.storage.local.get(['autostartEntries'], c => r(c))),
+    const localStorage  = await chrome.storage.local.get(['autostartEntries']),
           entry_index   = parseInt(url_params.get('entry')),
           entry_to_edit = localStorage.autostartEntries[entry_index],
           radioBtn      = document.getElementById(entry_to_edit.type);

@@ -37,7 +37,7 @@ const testBtn          = document.getElementById('testBtn'),
 
 async function removeEntry(entry) {
   // removeEntry(): remove specific autostart entry from storage
-  const localStorage = await new Promise(resolve => chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose'], callback => resolve(callback))),
+  const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose']),
         newEntries   = localStorage.autostartEntries.filter(e => JSON.stringify(e) !== JSON.stringify(entry));
 
   chrome.storage.local.set({ autostartEntries: newEntries });
@@ -64,7 +64,7 @@ addEntryBtn.onclick = () => {
 };
 
 window.onload = async () => {
-  const localStorage = await new Promise(r => chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose'], c => r(c)));
+  const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose']);
   let   friendly_type;
 
   // show options

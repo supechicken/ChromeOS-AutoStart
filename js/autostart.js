@@ -11,7 +11,7 @@ const url_params  = new URLSearchParams(location.search),
 async function autostartEntries(io) {
   // read autostart entries from storage
   const sw_registration = await navigator.serviceWorker.getRegistration(),
-        localStorage    = await new Promise(r => chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose'], c => r(c))),
+        localStorage    = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose']),
         totalTimestamp  = Date.now();
 
   // show notification if requested
@@ -100,7 +100,7 @@ window.onload = async () => {
   // initialize hterm
   await lib.init();
 
-  const localStorage = await new Promise(r => chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose'], c => r(c))),
+  const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose']),
         term         = new hterm.Terminal();
 
   // attach hterm

@@ -1,5 +1,5 @@
 chrome.runtime.onStartup.addListener(async () => {
-  const localStorage = await new Promise(r => chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate'], c => r(c)));
+  const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate']);
 
   // check for extension update
   if (localStorage.autoCheckUpdate) {
@@ -19,7 +19,7 @@ chrome.runtime.onStartup.addListener(async () => {
 });
 
 chrome.runtime.onInstalled.addListener(async i => {
-  const localStorage = await new Promise(r => chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate'], c => r(c)));
+  const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate']);
 
   if (localStorage.autoCheckUpdate === undefined) {
     // ask user for enabling auto update check

@@ -1,6 +1,6 @@
-const manageBtn         = document.getElementById('manageBtn'),
-      checkUpdateBtn          = document.getElementById('checkUpdateBtn'),
-      aboutBtn = document.getElementById('aboutBtn'),
+const manageBtn        = document.getElementById('manageBtn'),
+      checkUpdateBtn   = document.getElementById('checkUpdateBtn'),
+      aboutBtn         = document.getElementById('aboutBtn'),
       autoClose        = document.getElementById('autoClose'),
       showNotification = document.getElementById('showNotification'),
       totalEntries     = document.getElementById('totalEntries');
@@ -37,7 +37,7 @@ aboutBtn.onclick = () => {
 };
 
 window.onload = async () => {
-  const localStorage = await new Promise(r => chrome.storage.local.get(['showNotification', 'autoClose'], c => r(c)));
+  const localStorage = await chrome.storage.local.get(['showNotification', 'autoClose']);
 
   // show options
   showNotification.checked = localStorage.showNotification;
