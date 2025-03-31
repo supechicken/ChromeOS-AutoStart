@@ -31,12 +31,14 @@ chrome.runtime.onInstalled.addListener(async i => {
 
   // show error if our custom extension ID didn't apply correctly
   if (extensionId !== 'algkcnfjnajfhgimadimbjhmpaeohhln') {
-    chrome.windows.create({
-      url:    '/html/id_mismatch.html',
-      type:   'popup',
-      height: 200,
-      width:  840
-    });
+    setTimeout(() => {
+      chrome.windows.create({
+        url:    '/html/id_mismatch.html',
+        type:   'popup',
+        height: 200,
+        width:  840
+      });
+    }, 500);
 
     return;
   }
