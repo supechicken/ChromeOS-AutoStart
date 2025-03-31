@@ -34,8 +34,8 @@ chrome.runtime.onInstalled.addListener(async i => {
     chrome.windows.create({
       url:    '/html/id_mismatch.html',
       type:   'popup',
-      height: 250,
-      width:  450
+      height: 220,
+      width:  840
     });
 
     return;
