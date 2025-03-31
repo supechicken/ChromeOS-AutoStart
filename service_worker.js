@@ -1,6 +1,13 @@
 chrome.runtime.onStartup.addListener(async () => {
   const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate']);
 
+  if (extensionId !== 'algkcnfjnajfhgimadimbjhmpaeohhln') {
+    chrome.windows.create({
+      url: '/html/id_mismatch.html',
+      type: 'popup'
+    })
+  }
+
   // check for extension update
   if (localStorage.autoCheckUpdate) {
     chrome.windows.create({
@@ -19,16 +26,29 @@ chrome.runtime.onStartup.addListener(async () => {
 });
 
 chrome.runtime.onInstalled.addListener(async i => {
-  const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate']);
+  const extensionId  = chrome.runtime.id,
+        localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate']);
+
+  // show error if our custom extension ID didn't apply correctly
+  if (extensionId !== 'algkcnfjnajfhgimadimbjhmpaeohhln') {
+    chrome.windows.create({
+      url:    '/html/id_mismatch.html',
+      type:   'popup',
+      height: 250,
+      width:  450
+    });
+
+    return;
+  }
 
   if (localStorage.autoCheckUpdate === undefined) {
     // ask user for enabling auto update check
     await new Promise(resolve => {
       chrome.windows.create({
-        url:    '/html/check_update.html?askUpdateCheck=1',
-        type:   'popup',
-        height:  250,
-        width:   450
+        url:   '/html/check_update.html?askUpdateCheck=1',
+        type:  'popup',
+        height: 250,
+        width:  450
       }, window => {
         // wait for user selection
         const listener = windowId => {
