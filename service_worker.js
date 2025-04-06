@@ -1,13 +1,6 @@
 chrome.runtime.onStartup.addListener(async () => {
   const localStorage = await chrome.storage.local.get(['autostartEntries', 'showNotification', 'autoClose', 'autoCheckUpdate']);
 
-  if (extensionId !== 'algkcnfjnajfhgimadimbjhmpaeohhln') {
-    chrome.windows.create({
-      url: '/html/id_mismatch.html',
-      type: 'popup'
-    })
-  }
-
   // check for extension update
   if (localStorage.autoCheckUpdate) {
     chrome.windows.create({
